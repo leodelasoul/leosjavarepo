@@ -76,7 +76,7 @@ public class compareSorts {
 	
 	
 	public static int [] generateIntArrray(int len){
-		 int[] array = new int[len];
+		int[] array = new int[len];
 	        Random random = new Random();
 	        for (int i = 0; i < len; i++) {
 	            array[i] = random.nextInt(100000);
@@ -85,16 +85,18 @@ public class compareSorts {
 		
 	}
 	
-	  public static void insertionSort(int[] a) {
-	        int n = a.length;
+	  public static int[] insertionSort(int[] array) {
+	        int n = array.length;
 	        for (int i = 0; i < n-1; i++) {
 	            for (int j = i+1; j > 0; j--) {
-	                if (a[j] > a[j-1]) {
+	                if (array[j] > array[j-1]) {
 	                    break;
 	                }
-	                swap(a, j-1, j);
+	                swap(array, j-1, j);
 	            }
+	            
 	        }
+	        return array;
 	    }
 
 	  private static void swap(int[] a, int i, int j) {
@@ -102,8 +104,75 @@ public class compareSorts {
 	        a[i] = a[j];
 	        a[j] = temp;
 	    }
+	  
+	  
+	  
+	  public static int [] mergeSort2(int [] list){
+		  
+		  if (list.length <= 1) {
+	            return list;
+	        }
+		  
+		  int[] first = new int[list.length / 2];
+		  int[] second = new int[list.length - first.length];
+	      System.arraycopy(list, 0, first, 0, first.length);
+	      System.arraycopy(list, first.length, second, 0, second.length);
+	        
+	        
+	      mergeSort2(first);
+	      mergeSort2(second);
+	        
+	       
+	      merge2(first, second, list);
+	      return list;
+		  
+	  }
+	  
+	  
+	  public static void merge2(int[] first, int[] second, int [] result) {
+			
+	        
+	        int iFirst = 0;
+	        int iSecond = 0;
+	        int j = 0;
+	        
+	        while (iFirst < first.length && iSecond < second.length) {
+	            if (first[iFirst] < second[iSecond]) {
+	                result[j] = first[iFirst];
+	                iFirst++;
+	                } else {
+	                result[j] = second[iSecond];
+	                iSecond++;
+	            }
+	            j++;
+	        }
+	        // copy what's left
+	        System.arraycopy(first, iFirst, result, j, first.length - iFirst);
+	        System.arraycopy(second, iSecond, result, j, second.length - iSecond);
+	    }
+		
+	  public static int[] generateSorted(final int length, final int minVal, final int maxVal) {
+		  
+		Random rand = new Random();
+		int span = maxVal - minVal + 1;
+		int[] accumulator = new int[span];
+		for (int genIdx = 0; genIdx < length; genIdx++) {
+			accumulator[rand.nextInt(span)]++;
+		}
+		int resultIdx = 0;
+		int[] result = new int[length];
+		for (int accIdx = 0; accIdx < span; accIdx++) {
+			for (int valIdx = 0; valIdx < accumulator[accIdx]; valIdx++) {
+				result[resultIdx++] = accIdx + minVal;
+			}
+		}
+		return result;
+		}
+	  
 	
+	  
 	 public static void main(String[] args)throws Exception {
+		 
 		 	compareSorts trigger = new compareSorts();
 		 	String a [];
 		 	a = trigger.generateArray();
@@ -129,6 +198,25 @@ public class compareSorts {
 	        System.out.println("Integer values after Insertion Sort : ");
 	        System.out.println(Arrays.toString(insertionSort(generateIntArrray(100))));
 	        
+	        
+	        System.out.println(" ");
+	        System.out.println(" ");
+	        
+	        System.out.println("Integer values after Merge Sort : ");
+	        System.out.println(Arrays.toString(mergeSort2(generateIntArrray(100))));
+	        
+	        System.out.println(" ");
+	        System.out.println(" ");
+	        
+	        System.out.println("Sorted Arrraygenerator : ");
+	        
+	        int [] sortedArray = generateSorted(100,0,99);
+	        
+	        System.out.println(Arrays.toString(sortedArray));
+	        System.out.println("Insertion sort : ");
+	        System.out.println(Arrays.toString(insertionSort(sortedArray)));
+	        System.out.println("Merge sort : ");
+	        System.out.println(Arrays.toString(mergeSort2(sortedArray)));
 	 }
 
 }
