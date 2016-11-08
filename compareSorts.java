@@ -169,6 +169,35 @@ public class compareSorts {
 		return result;
 		}
 	  
+	  
+	  public static void quickSort(int[] a, int si, int ei){
+		    //base case
+		    if(ei<=si || si>=ei){}
+
+		    else{ 
+		        int pivot = a[si]; 
+		        int i = si+1; int tmp; 
+
+		        //partition array 
+		        for(int j = si+1; j<= ei; j++){
+		            if(pivot > a[j]){
+		                tmp = a[j]; 
+		                a[j] = a[i]; 
+		                a[i] = tmp; 
+
+		                i++; 
+		            }
+		        }
+
+		        //put pivot in right position
+		        a[si] = a[i-1]; 
+		        a[i-1] = pivot; 
+
+		        //call qsort on right and left sides of pivot
+		        quickSort(a, si, i-2); 
+		        quickSort(a, i, ei); 
+		    }
+		}
 	
 	  
 	 public static void main(String[] args)throws Exception {
@@ -210,13 +239,28 @@ public class compareSorts {
 	        
 	        System.out.println("Sorted Arrraygenerator : ");
 	        
-	        int [] sortedArray = generateSorted(100,0,99);
+	        int [] sortedArray = generateSorted(1000,0,999);
 	        
 	        System.out.println(Arrays.toString(sortedArray));
 	        System.out.println("Insertion sort : ");
 	        System.out.println(Arrays.toString(insertionSort(sortedArray)));
 	        System.out.println("Merge sort : ");
 	        System.out.println(Arrays.toString(mergeSort2(sortedArray)));
+	        
+	        
+	        
+	        //updated for ue_3 
+	        System.out.println("Integer values after Quick Sort : "); //TODO: add comment
+	        
+	        int[] quickVar = generateIntArrray(100);
+	        		
+	        quickSort(quickVar,0,99);
+	        System.out.println(Arrays.toString(quickVar));
+	        
+	        
+	        System.out.println("Sorted integer values after Quick Sort : "); //TODO: add comment
+	        quickSort(sortedArray,0,999);
+	        System.out.println(Arrays.toString(sortedArray));
 	 }
 
 }
