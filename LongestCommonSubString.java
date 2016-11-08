@@ -1,6 +1,5 @@
 package sortPackage;
 
-import java.util.Arrays;
 
 public class LongestCommonSubString {
 	
@@ -9,7 +8,7 @@ public class LongestCommonSubString {
 		int m = x.length();
 		int n = y.length();
 		
-		int mStart = 0;
+		/*int mStart = 0;
 		int nStart = 0;
 		
 		for(int i = 1; i <= m; i++){
@@ -21,10 +20,9 @@ public class LongestCommonSubString {
 			
 		}
 		
-		//int xIdx = 0;
-		//int yIdx = 0;
+		*/
 		
-		String b [][] = new String [mStart][nStart];
+		String b [][] = new String [m + 1][n + 1];
 		int c [][] = new int [m][n];
 		for(int i = 1; i < m; i++){
 			c[i][0] = 0;
@@ -36,7 +34,7 @@ public class LongestCommonSubString {
 		}
 		for(int i = 1; i < m;i++){
 			for(int j = 1; j < n; j++){
-				if(i == j){
+				if(x.charAt(i-1) == y.charAt(j-1)){
 					c[i][j] = c[i-1][j-1]+1;
 					b[i][j] = "links oben";
 					
@@ -61,7 +59,7 @@ public class LongestCommonSubString {
 		}
 		if(b[i][j] == "links oben"){
 			printLCS(b,x,i-1,j-1);
-			System.out.println(x);
+			System.out.println(x.charAt(i-1));
 		}
 		else if(b[i][j] == "oben")
 			printLCS(b,x,i-1,j-1);
@@ -73,8 +71,8 @@ public class LongestCommonSubString {
 	
 	public static void main(String args []){
 		String [][] a = lengthLCS("AGATTACCCAA","GCATTGGAGCATG");
-		System.out.println(Arrays.toString(a));
-		//(printLCS(a,);
+		
+		printLCS(a,"AGATTACCCAA",11,13);
 	}
 		
 		
