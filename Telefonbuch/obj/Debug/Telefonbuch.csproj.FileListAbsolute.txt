@@ -1,0 +1,9 @@
+c:\users\ghn\documents\visual studio 2015\Projects\Telefonbuch\Telefonbuch\bin\Debug\Telefonbuch.exe.config
+c:\users\ghn\documents\visual studio 2015\Projects\Telefonbuch\Telefonbuch\bin\Debug\Telefonbuch.exe
+c:\users\ghn\documents\visual studio 2015\Projects\Telefonbuch\Telefonbuch\bin\Debug\Telefonbuch.pdb
+c:\users\ghn\documents\visual studio 2015\Projects\Telefonbuch\Telefonbuch\obj\Debug\Telefonbuch.csprojResolveAssemblyReference.cache
+c:\users\ghn\documents\visual studio 2015\Projects\Telefonbuch\Telefonbuch\obj\Debug\Telefonbuch.frmMain.resources
+c:\users\ghn\documents\visual studio 2015\Projects\Telefonbuch\Telefonbuch\obj\Debug\Telefonbuch.Properties.Resources.resources
+c:\users\ghn\documents\visual studio 2015\Projects\Telefonbuch\Telefonbuch\obj\Debug\Telefonbuch.csproj.GenerateResource.Cache
+c:\users\ghn\documents\visual studio 2015\Projects\Telefonbuch\Telefonbuch\obj\Debug\Telefonbuch.exe
+c:\users\ghn\documents\visual studio 2015\Projects\Telefonbuch\Telefonbuch\obj\Debug\Telefonbuch.pdb
