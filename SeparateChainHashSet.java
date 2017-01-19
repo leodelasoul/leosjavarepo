@@ -12,6 +12,10 @@ public class SeparateChainHashSet<E> {
 		data = new LinkedList[m];
 		for(int i = 0; i < m; i++){
 			data[i] = new LinkedList<>();
+			if(i >= 11){
+				remove(data[i]);
+		}
+		
 		}
 		
 	}
@@ -45,6 +49,8 @@ public class SeparateChainHashSet<E> {
 	public int size(){
 		return currentSize;
 	}
+	
+	
 	
 
 }
